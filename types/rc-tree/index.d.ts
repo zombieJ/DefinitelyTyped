@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.7
 
-import { Component } from "react";
+import * as React from "react";
 
 export interface InternalTreeNodeProps extends TreeNodeProps {
     eventKey: string;
@@ -18,7 +18,7 @@ export interface InternalTreeNodeProps extends TreeNodeProps {
     dragOverGapBottom: boolean;
 }
 
-export interface InternalTreeNode extends Component<InternalTreeNodeProps> { }
+export interface InternalTreeNode extends React.Component<InternalTreeNodeProps> { }
 
 export interface TreeNodeProps {
     /**
@@ -41,6 +41,10 @@ export interface TreeNodeProps {
      * whether it is a leaf node
      */
     isLeaf?: boolean;
+    /**
+     * set tree node icon
+     */
+    icon?: (props: InternalTreeNodeProps) => React.ReactNode | React.ReactNode;
 }
 
 export class TreeNode extends Component<TreeNodeProps> { }
